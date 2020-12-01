@@ -6,7 +6,6 @@ PATH='data/'
 
 label=pickle.load(open(PATH+'label_encoder.txt','rb'))
 trained_model=pickle.load(open(PATH+'trained_model.txt','rb'))
-rec_data=pd.read_pickle('https://drive.google.com/open?id=1SDGWZBegsF_7kwzgGISx-Yw212iGDiOI')
 # ========= Recommendation =========
 rec_features=['year', 'manufacturer',
      'model', 'condition', 'cylinders', 'fuel', 'odometer', 'title_status',
