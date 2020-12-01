@@ -24,8 +24,8 @@ st.sidebar.title('Car Features')
 make=st.sidebar.selectbox("Manufacturer",
 list_of_make)
 model=st.sidebar.selectbox("Car Model",default_model[make])
-year=st.sidebar.slider('Year of make',1950,2020,2000)
-odometer=st.sidebar.slider('Odometer(Mile)',0,500000,25000)
+year=st.sidebar.slider('Year of make',1950,2020,2015)
+odometer=st.sidebar.slider('Odometer(Mile)',0,500000,10000)
 paint_color=st.sidebar.selectbox("Paint Color",paint_color_list)
 
 drive=st.sidebar.selectbox("Drive",
@@ -165,7 +165,7 @@ if buy_car:
     st.write(' ')
     st.write('Please review your car\'s features here:')
     st.dataframe(df)
-    st.title (f'The Estimated Price is {int(buy_pred[0])} USD.')
+    st.title (f'The Estimated Price is {int(buy_pred[0])+2000} USD.')
     st.write(' ')
     st.title('See Alternative cars -->')
     top5=get_buy_recommendation(df_to_recomm,rec_data,buy_pred)
