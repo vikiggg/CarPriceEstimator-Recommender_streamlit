@@ -27,6 +27,13 @@ title_status_list=pickle.load(open(PATH+'list_title_status.txt','rb'))
 paint_color_list=pickle.load(open(PATH+'list_paint_color.txt','rb'))
 label=pickle.load(open(PATH+'label_encoder.txt','rb'))
 trained_model=pickle.load(open(PATH+'trained_model.txt','rb'))
+rec_1=pd.read_pickle(PATH+'rec_data_1.zip',compression='zip')
+rec_2=pd.read_pickle(PATH+'rec_data_1.zip',compression='zip')
+
+@st.cache
+def get_rec_data(rec_1,rec_2):
+    rec=rec_1.merge(rec_2)
+    return rec
 
 # ========= Sidebar: UserInput ============
 st.sidebar.title('Car Features')
@@ -157,7 +164,7 @@ if sell_car:
     st.title(f'Your car estimately worth {int(sell_pred[0])} USD.')
     st.write('')
     st.title('See more similar deals -->')
-    rec_data=pickle.load(open('rec_data.txt','rb'))
+    rec_data=get_rec_data(rec_1,rec_2)
     top5=get_sell_recommendation(df_to_recomm,rec_data,sell_pred)
     st.balloons()
     try:
@@ -188,7 +195,7 @@ if buy_car:
     st.title (f'The Estimated Price is {int(buy_pred[0])} USD.')
     st.write(' ')
     st.title('See Alternative cars -->')
-    rec_data=pickle.load(open('rec_data.txt','rb'))
+    rec_data=get_rec_data(rec_1,rec_2)
     top5=get_buy_recommendation(df_to_recomm,rec_data,buy_pred)
     st.balloons()
     try:
