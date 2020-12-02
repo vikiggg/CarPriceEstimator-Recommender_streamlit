@@ -8,11 +8,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 image = Image.open('car.jpg')
 st.image(image,use_column_width=True)
-st.write("""
-# Car Price Estimator 
-#### Welcome! :racing_car:
-""")
-st.info('Enter all required (Expecting)features in the sidebar!')
 st.write('--'*30)
 
 label=pickle.load(open(PATH+'label_encoder.txt','rb'))
@@ -21,6 +16,7 @@ rec_data=get_rec_data(rec_1,rec_2)
 
 # ========= Sidebar: UserInput ============
 st.sidebar.title('Car Features')
+st.sidebar.info('Enter all required (Expecting)features in the sidebar!')
 make=st.sidebar.selectbox("Manufacturer",
 list_of_make)
 model=st.sidebar.selectbox("Car Model",default_model[make])
@@ -123,9 +119,9 @@ def get_sell_recommendation(input_df,rec_data,pred_price):
           res_df.reset_index(drop=True,inplace=True)
      return res_df
 # ========= show on main page ============
-left_column, right_column = st.beta_columns(2)
+one,left_column,three,right_column,five = st.beta_columns(5)
 sell_car = left_column.button('Sell my car')
-buy_car=right_column.button("Buy a used car")
+buy_car=right_column.button("Buy a car")
 if sell_car: 
     df = sell_features()
     df_to_predict=df.copy()
