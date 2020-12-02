@@ -7,7 +7,7 @@ warnings.filterwarnings("ignore")
 from sklearn.metrics.pairwise import cosine_similarity
 
 image = Image.open('car.jpg')
-st.image(image,use_column_width=False)
+st.image(image,use_column_width=True)
 st.write("""
 # Car Price Estimator 
 #### Welcome! :racing_car:
