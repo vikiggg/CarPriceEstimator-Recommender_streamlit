@@ -119,7 +119,7 @@ def get_sell_recommendation(input_df,rec_data,pred_price):
           res_df.reset_index(drop=True,inplace=True)
      return res_df
 # ========= show on main page ============
-one,left_column,three,right_column,five = st.beta_columns(5)
+one,left_column,three,right_column,five = st.columns(5)
 sell_car = left_column.button('Sell my car')
 buy_car=right_column.button("Buy a car")
 if sell_car: 
@@ -139,7 +139,7 @@ if sell_car:
     try:
         top5=top5[res_features]
         for i in range(top5.shape[0]):
-                left_, right_ = st.beta_columns(2)
+                left_, right_ = st.columns(2)
                 try:
                     right_.table(top5.iloc[i,1:])
                 except:
@@ -169,7 +169,7 @@ if buy_car:
     try:
         top5=top5[res_features]
         for i in range(top5.shape[0]):
-                left_, right_ = st.beta_columns(2)
+                left_, right_ = st.columns(2)
                 try:
                     right_.table(top5.iloc[i,1:])
                 except:
