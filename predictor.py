@@ -183,7 +183,7 @@ if buy_car:
         st.warning('No similar deals on going at this moment.')
 
 st.write(' ')    
-expander = st.beta_expander("FAQ")
+expander = st.expander("FAQ")
 expander.write("""
 #### Q1: How should I use this price estimator?
 Answer: Please enter all features required above and click either "Buy" or "Sell" 
